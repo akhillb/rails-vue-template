@@ -66,4 +66,6 @@ after_bundle do
   copy_application_js_file
   add_root_route
 	create_database
+  commit
+  say "Change to the application's home directory and run `foreman start`"
 end
