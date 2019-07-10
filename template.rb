@@ -49,7 +49,7 @@ def commit
 end
 
 def create_database
-	rails_command "db:migrate"
+	rails_command "db:create"
 end
 
 def add_root_route
@@ -65,7 +65,8 @@ after_bundle do
 	install_node_modules
   copy_application_js_file
   add_root_route
-	create_database
+  create_database
+  run "rm app/javascript/packs/hello_vue.js"
   commit
   say "Change to the application's home directory and run `foreman start`"
 end
